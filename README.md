@@ -1,123 +1,171 @@
-# Growtopia Android ImGUI
-Growtopia android modmenu with ImGUI.
-![](https://cdn.discordapp.com/attachments/488978346072604682/896775860550533200/unknown.png)
+# 🛠️ Android ImGui Mod Menu
 
-## Features
-- Built with [ImGUI](https://github.com/ocornut/imgui).
+<p align="center">
+  <b>Custom ImGui Mod Menu Framework for Android Games</b>
+</p>
 
-## Coming Soon
-- None
+---
 
-## Requirements
-The following dependencies are required to build the library from source.
-- [NDK Android](https://developer.android.com/ndk).
-- [APK Easy Tools](https://forum.xda-developers.com/android/software-hacking/tool-apk-easy-tool-v1-02-windows-gui-t3333960).
-- Any text editor. We use [Notepad++](https://notepad-plus-plus.org/).
+# 🇧🇷 Português
 
-For AIDE users (I'm not sure if this works 100%).
-- [AIDE CMods](https://secufiles.com/nE9J/AIDE_CMODs_3.2.200108.apk).
-- [NDK AIDE for arm32](https://www.mediafire.com/file/62l4gcxqsqtxy20/ndk_arm.tar.gz/file).
-- [NDK AIDE for arm64](https://www.mediafire.com/file/w56tbt9pmqxzmpu/ndk_arm64.tar.gz/file).
-- [APK Tool M](https://maximoff.su/apktool)
+## 📖 Sobre o Projeto
 
-There are many tutorials for installing on youtube, Attention if your android doesn't support arm then it won't work. one of them [AIDE CMods tutorial](https://youtu.be/VYvKEFHSgkg)
+Este projeto é um **Mod Menu baseado em Dear ImGui para Android**, desenvolvido para criação de interfaces de modificações (mods) em aplicações e jogos Android.
 
-## Building the source
-`ndk-build`:
-```shell
-git clone https://github.com/ZTzTopia/GTInternalAndroid
-cd GrowtopiaImGui
-ndk-build
+> ⚠️ **Nota:** Este projeto não foi desenvolvido originalmente por mim.  
+> Ele foi baseado em um projeto existente e posteriormente modificado, adaptado e personalizado para atender necessidades específicas de uso e desenvolvimento.
+
+O objetivo principal é fornecer uma base de interface gráfica utilizando ImGui, permitindo a criação de menus personalizados, controles, opções e ferramentas para projetos de modding.
+---
+
+## ⚙️ Recursos
+
+- Interface gráfica baseada em **Dear ImGui**
+- Suporte para Android
+- Menu flutuante personalizado
+- Renderização utilizando OpenGL
+- Sistema compatível com projetos nativos
+- Fácil personalização de botões, abas e opções
+- Base para desenvolvimento de ferramentas de modificação
+
+---
+
+## 📱 Compatibilidade
+
+Compatível com projetos Android que utilizam:
+
+- NDK
+- C++
+- JNI
+- OpenGL ES
+- Dear ImGui
+
+---
+
+# 📌 Integração para usuários AIDE / CMods
+
+Usuários que utilizam **AIDE ou CMods** podem iniciar o Mod Menu chamando o método `Start()` da `MainActivity`.
+
+Adicione o seguinte código no local desejado:
+
+```smali
+invoke-static {p0}, Lcom/mycompany/application/MainActivity;->Start(Landroid/content/Context;)V
 ```
 
-You need [ninja](https://ninja-build.org/) build system to use ninja cmake generator.
+iniciando o sistema do Mod Menu dentro da aplicação.
 
-`cmake`:
-```shell
-mkdir build
-cd build
-cmake -GNinja -DCMAKE_MAKE_PROGRAM=/path/to/ninja.exe -DCMAKE_ANDROID_NDK=/path/to/android-ndk \
-  -DCMAKE_TOOLCHAIN_FILE=toolchains/android.cmake ..
-cmake --build .
+---
+
+## 🚀 Como utilizar
+
+1. Compile o projeto normalmente.
+2. Integre o código nativo ao aplicativo Android.
+3. Execute a inicialização do Mod Menu.
+4. Personalize os elementos da interface conforme sua necessidade.
+
+---
+
+## 🎨 Personalização
+
+O menu pode ser adaptado para diferentes necessidades, permitindo adicionar:
+
+- Botões
+- Checkboxes
+- Sliders
+- Abas
+- Janelas personalizadas
+- Sistemas de configuração
+
+---
+
+## ⚠️ Aviso
+
+Este projeto é destinado para fins educacionais, estudos de programação, desenvolvimento Android e aprendizado sobre interfaces gráficas utilizando C++/JNI.
+
+Use somente em aplicações próprias ou onde você possui autorização.
+
+---
+
+---
+
+# 🇺🇸 English
+
+# 🛠️ Android ImGui Mod Menu
+
+## 📖 About the Project
+
+This project is an **Android Mod Menu based on Dear ImGui**, designed for creating modification interfaces (mods) for Android applications and games.
+
+The main purpose is to provide a customizable graphical interface using ImGui, allowing developers to create menus, controls, options, and tools for modding projects.
+
+---
+
+## ⚙️ Features
+
+- Dear ImGui based interface
+- Android support
+- Custom floating menu
+- OpenGL rendering
+- Native project compatibility
+- Easy customization of buttons, tabs, and options
+- Base framework for modding development
+
+---
+
+## 📱 Compatibility
+
+Works with Android projects using:
+
+- NDK
+- C++
+- JNI
+- OpenGL ES
+- Dear ImGui
+
+---
+
+# 📌 AIDE / CMods Integration
+
+Users working with **AIDE or CMods** can start the Mod Menu by calling the `Start()` method from `MainActivity`.
+
+Add the following code where you want to initialize the menu:
+
+
+```smali
+invoke-static {p0}, Lcom/mycompany/application/MainActivity;->Start(Landroid/content/Context;)V
 ```
 
-## Inject to growtopia
-<details>
-  <summary markdown="span">Android</summary>
-  
-  I highly recommend using [APK Tool M](https://maximoff.su/apktool) to decompile the growtopia apk. Or you can get growtopia with edited: [Growtopia Folder](https://bit.ly/2ZanMBy), so you don't need to do the tutorial below. 
-  
-  #### 1. Antisplit the apk
-  If you see a split sign like the picture below then follow these steps:
-  
-  ![](https://cdn.discordapp.com/attachments/488978346697424907/901407788067069962/unknown.png)
-  
-  Click the growtopia apk and press antisplit as shown below:
-  
-  ![](https://cdn.discordapp.com/attachments/488978346697424907/901408001313894480/unknown.png)
-  
-  Select the apk signature as shown below:
-  
-  ![](https://cdn.discordapp.com/attachments/488978346697424907/901408621211029534/unknown.png)
-  
-  And install the growtopia apk.
-  
-  #### 2. Decompile growtopia apk
-  Click the growtopia apk and press decompile as shown below:
-  
-  ![](https://cdn.discordapp.com/attachments/488978346697424907/901409650090573914/unknown.png)
-  
-  Do what the image below does:
-  
-  ![](https://cdn.discordapp.com/attachments/488978346697424907/901409767019409408/unknown.png)
-  
-  And press go to:
-  
-  ![](https://cdn.discordapp.com/attachments/488978346697424907/901409975052673054/unknown.png)
-  
-  #### 3. Add your library to apk
-  Copy the library file (.so) from `libs` to the target game. Watch out the folder names, we don't want to mix them up, so make sure to copy our lib file to the correct architecture. Like our armeabi-v7a lib goes to the target games armeabi-v7a folder, arm64-v8a lib goes to the arm64-v8a folder...
+and initializes the Mod Menu system inside the application.
 
-  PUTTING THE LIB FILE ON A WRONG ARCHITECTURE LIKE PUTTING ARM64 LIB TO ARMV7 WILL RESULT A CRASH!
-  
-  Now go to `lib/{arch}`:
-  
-  ![](https://cdn.discordapp.com/attachments/488978346697424907/901410620933541898/unknown.png)
-  
-  You can use second tab to copy library file to target game lib:
-  
-  ![](https://cdn.discordapp.com/attachments/488978346697424907/901410854174613524/unknown.png)
-  
-  And paste library file to target game lib:
-  
-  ![](https://cdn.discordapp.com/attachments/488978346697424907/901410915893772328/unknown.png)
-  
-  #### 4. Load your library
-  Now go to `smali/com/rtsoft/growtopia`:
-  
-  ![](https://cdn.discordapp.com/attachments/488978346697424907/901412534756724756/unknown.png)
-  
-  and open the `Main.smali` file, Add this code before `const-string v0, "growtopia"`.
-  ```smali
-  const-string v0, "ModMenu"
+---
 
-  invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
-  ```
-  
-  Like the picture below:
-  
-  ![](https://cdn.discordapp.com/attachments/773831752271527946/896769601218691142/unknown.png)
-  
-  #### 5. Compiling game apk
-  Now compile and sign the apk, and install it on your device. Congrats. You have successfully implemented a mod menu.
-  
-  ![](https://cdn.discordapp.com/attachments/488978346697424907/901411013793021952/unknown.png)
-</details>
+## 🚀 Usage
 
-<details>
-  <summary markdown="span">Windows</summary>
-  
-  Later ok?
-</details>
+1. Build the project normally.
+2. Integrate the native code into your Android application.
+3. Initialize the Mod Menu.
+4. Customize the interface according to your needs.
 
-Some parts of this content from [LGLTeam Mod Menu](https://github.com/LGLTeam/Android-Mod-Menu)
+---
+
+## 🎨 Customization
+
+The menu can be extended with:
+
+- Buttons
+- Checkboxes
+- Sliders
+- Tabs
+- Custom windows
+- Configuration systems
+
+---
+
+## 📖 About the Project
+
+This project is an **Android Mod Menu based on Dear ImGui**, designed for creating modification interfaces (mods) for Android applications and games.
+
+> ⚠️ **Note:** This project was not originally developed by me.  
+> It is based on an existing project that was later modified, adapted, and customized to meet specific development and usage requirements.
+
+The main purpose is to provide a customizable graphical interface using ImGui, allowing developers to create menus, controls, options, and tools for modding projects.
