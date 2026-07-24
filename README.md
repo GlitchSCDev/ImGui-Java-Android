@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # 🛠️ Android ImGui Mod Menu
 
 <p align="center">
@@ -171,5 +171,4 @@ This project is an **Android Mod Menu based on Dear ImGui**, designed for creati
 
 The main purpose is to provide a customizable graphical interface using ImGui, allowing developers to create menus, controls, options, and tools for modding projects.
 =======
-# ImGui-Java-Android
->>>>>>> 3b97992e18acc80d0b56b820743c0cbff5aaa233
+
