@@ -45,9 +45,8 @@ Compatível com projetos Android que utilizam:
 
 # 📌 Integração para usuários AIDE / CMods
 
-Usuários que utilizam **AIDE ou CMods** podem iniciar o Mod Menu chamando o método `Start()` da `MainActivity`.
-
-Adicione o seguinte código no local desejado:
+Usuários que utilizam **AIDE ou CMods** 
+Código para embutir o mod:
 
 ```smali
 invoke-static {p0}, Lcom/mycompany/application/MainActivity;->Start(Landroid/content/Context;)V
@@ -127,9 +126,7 @@ Works with Android projects using:
 
 # 📌 AIDE / CMods Integration
 
-Users working with **AIDE or CMods** can start the Mod Menu by calling the `Start()` method from `MainActivity`.
-
-Add the following code where you want to initialize the menu:
+Users working with **AIDE or CMods** Code to embed the menu in the game:
 
 
 ```smali
